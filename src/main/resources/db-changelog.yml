@@ -39,6 +39,8 @@ databaseChangeLog:
               - column:
                   name: city
                   type: VARCHAR(255)
+                  
+      
   - changeSet:
       id: 3
       author: Trach
@@ -49,3 +51,20 @@ databaseChangeLog:
               - column:
                   name: code_postal
                   type: VARCHAR(20)
+                  
+  - changeSet:
+      id: 4
+      author: Minpik
+      changes:
+        - addColumn:
+            tableName: employee
+            columns:
+              - column:
+                  name: address_id
+                  type: BIGINT
+        - addForeignKeyConstraint:
+            baseTableName: employee
+            baseColumnNames: address_id
+            referencedTableName: address
+            referencedColumnNames: id
+            constraintName: fk_employee_address
