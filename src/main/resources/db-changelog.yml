@@ -68,3 +68,12 @@ databaseChangeLog:
             referencedTableName: address
             referencedColumnNames: id
             constraintName: fk_employee_address
+            
+  - changeSet:
+      id: 5
+      author: Lead
+      changes:
+        - modifyDataType:
+            tableName: address
+            columnName: city
+            newDataType: INTEGER
