@@ -1,0 +1,5 @@
+changeLogFile: src/main/resources/db-changelog.yml
+driver: org.postgresql.Driver
+url: jdbc:postgresql://localhost:5432/DB_MAVEN_LIQUIBASE?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true
+username: postgres
+password: postgres

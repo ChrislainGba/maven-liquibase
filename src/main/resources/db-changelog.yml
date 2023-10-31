@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: chrislain
+      changes:
+        - createTable:
+            tableName: employees
+            ifNotExists: true
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+  - changeSet:
+      id: 2
+      author: chrislain
+      changes:
+        - createTable:
+            tableName: address
+            ifNotExists: true
+            columns:
+              - column:
+                  name: id
+                  type: SERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: street
+                  type: VARCHAR(255)
+              - column:
+                  name: city
+                  type: VARCHAR(255)
+  - changeSet:
+      id: 3
+      author: Trach
+      changes:
+        - addColumn:
+            tableName: address
+            columns:
+              - column:
+                  name: code_postal
+                  type: VARCHAR(20)
