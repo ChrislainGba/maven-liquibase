@@ -1,3 +1,5 @@
+#mvn liquibase:update
+#mvn liquibase:rollback -Dliquibase.rollbackCount=6
 databaseChangeLog:
   - changeSet:
       id: 1
@@ -77,3 +79,37 @@ databaseChangeLog:
             tableName: address
             columnName: city
             newDataType: INTEGER
+            
+  - changeSet:
+      id: 6
+      author: chrislain
+      changes:
+        - createTable:
+            tableName: team
+            ifNotExists: true
+            columns:
+              - column:
+                  name: id
+                  type: SERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  
+  - changeSet:
+      id: 7	
+      author: Lead
+      changes:
+        - modifyDataType:
+            tableName: team
+            columnName: name
+            newDataType: INTEGER
+            
+  - changeSet:
+      id: 8
+      author: auteur
+      changes:
+        - dropTable:
+            tableName: team
